@@ -1,0 +1,6 @@
+├─ templates
+│  └─ home.html
+├─ .gitignore
+├─ README.md
+├─ app.py
+└─ requirements.txt
