@@ -7,10 +7,9 @@
               <a class="mr-2" href="#">{{ noticias.autor }}</a>
               <small class="text-muted">{{ noticias.data_postagem }}</small>
             </div>
-            <h2><a class="article-title" href="{{ url_for('home_assinante') }}">{{ noticias.titulo }}</a></h2>
+            <h2><a class="article-title" href="#">{{ noticias.titulo }}</a></h2>
+            <p class="article-content">{{ noticias.conteudo }}</p>
           </div>
         </article>
     {% endfor %}
 {% endblock content %}
-
-
