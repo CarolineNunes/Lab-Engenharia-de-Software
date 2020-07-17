@@ -1,0 +1,16 @@
+{% extends "templateadmin.html" %}
+{% block content %}
+    {% for noticias in noticias %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ noticias.autor }}</a>
+              <small class="text-muted">{{ noticias.data_postagem }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('homeadmin') }}">{{ noticias.titulo }}</a></h2>
+              <p class="article-content">{{ noticias.conteudo }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+

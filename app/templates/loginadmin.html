@@ -1,0 +1,41 @@
+{% extends "template.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Bem vindo de volta, admin =)</legend>
+                <div class="form-group">
+                    {{ form.emailadmin.label(class="form-control-label") }}
+                    {% if form.emailadmin.errors %}
+                        {{ form.emailadmin(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.emailadmin.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.emailadmin(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.passwordadmin.label(class="form-control-label") }}
+                    {% if form.passwordadmin.errors %}
+                        {{ form.passwordadmin(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.passwordadmin.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.passwordadmin(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submitadmin(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

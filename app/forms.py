@@ -1,0 +1,47 @@
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from app.models import User
+
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Nome de usuário',
+                           validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email',
+                        validators=[DataRequired(), Email()])
+    password = PasswordField('Senha', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirmar a Senha',
+                                     validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Cadastrar-se')
+
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('Este usuário já existe, escolha outro')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('Este email já existe, escolha outro')
+
+
+class LoginForm(FlaskForm):
+    email = StringField('Email',
+                        validators=[DataRequired(), Email()])
+    password = PasswordField('Senha', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
+
+
+class LoginFormAdmin(FlaskForm):
+    emailadmin = StringField('Email',
+                        validators=[DataRequired(), Email()])
+    passwordadmin = PasswordField('Senha', validators=[DataRequired()])
+    rememberadmin = BooleanField('Remember Me')
+    submitadmin = SubmitField('Login')
+
+
+class NoticiaForm(FlaskForm):
+    titulo = StringField('Título', validators=[DataRequired()])
+    conteudo = TextAreaField('Corpo da Notícia', validators=[DataRequired()])
+    submit = SubmitField('Criar Notícia')

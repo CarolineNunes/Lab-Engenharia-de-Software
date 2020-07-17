@@ -26,12 +26,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('homeadmin') }}">Home</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-              <a class="nav-item nav-link" href="{{ url_for('cadastro') }}">Register</a>
+                <a class="nav-item nav-link" href="{{ url_for('criar_noticia') }}">Criar Notícia</a>
+              <a class="nav-item nav-link" href="{{ url_for('logoutadmin') }}">Sair do Gerenciamento</a>
             </div>
           </div>
         </div>

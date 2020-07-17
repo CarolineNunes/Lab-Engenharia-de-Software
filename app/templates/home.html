@@ -5,7 +5,7 @@
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ noticias.autor }}</a>
-              <small class="text-muted">{{ noticias.data_postagem }}</small>
+              <small class="text-muted">{{ noticias.date_posted.strftime('%d-%m-%Y') }}</small>
             </div>
             <h2><a class="article-title" href="{{ url_for('home_assinante') }}">{{ noticias.titulo }}</a></h2>
           </div>
